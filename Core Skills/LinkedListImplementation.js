@@ -35,4 +35,26 @@ class Linkedlist {
   isEmpty() {
     return this.length === 0;
   }
+
+  addLast(value) {
+    if (this.headNode === null) {
+      this.addFirst(value);
+    }
+    const newNode = new Node(value);
+    this.tailNode.next = newNode;
+    this.tailNode = newNode;
+    this.length++;
+
+    return this.size();
+  }
+  addFirst(value) {
+    const newNode = new Node(value);
+    if (this.headNode === null) {
+      this.tailNode = newNode;
+    }
+    newNode.next = this.headNode;
+    this.headNode = newNode;
+    this.length++;
+    return this.size();
+  }
 }
