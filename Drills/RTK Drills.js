@@ -1,5 +1,5 @@
 
-import {useDispatch, useSelector} from 'react-redux';
+import {ReactReduxContext, useDispatch, useSelector} from 'react-redux';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 
@@ -73,5 +73,22 @@ const ThemeButton = () => {
     </button>
   );
 };
+
+
+const volumeSlice = createSlice({
+name: 'Volume',
+initialState: {level:50},
+reducers: {
+  volumeUp(state){
+    state.level = state.level+1
+  },
+  setVolume(state,action){
+    state.level = action.payload
+  }
+}
+})
+
+export const {volumeUp, setVolume} =  volumeSlice.actions;
+export default volumeSlice = volumeSlice.reducer;
 
 

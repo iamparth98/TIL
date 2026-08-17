@@ -86,3 +86,13 @@ function NoSpaceInput(){
     )
 }
 
+function FullName(){
+    const [form,setForm] = useState({first:"", last:''})
+    return(
+        <div className="">
+            <input value = {form.first} onchange = {handleNameChange} type="text" />
+            <input value = {form.last} onchange = {handleNameChange} type="text" />
+            <p>Hello {form.first}{form.last}</p>
+        </div>
+    )
+}
